@@ -1,0 +1,6 @@
+@LonekollenApi_HostAddress = http://localhost:5137
+
+GET {{LonekollenApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

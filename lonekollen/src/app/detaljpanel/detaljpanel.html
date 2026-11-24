@@ -1,0 +1,10 @@
+<div class="card bg-light mb-3">
+  <div class="card-body">
+    @if (valdAnstalld) {
+      <h5>{{ valdAnstalld.namn }}</h5>
+      <p>{{ valdAnstalld.roll }}</p>
+    } @else {
+      <p class="text-muted">Ingen vald</p>
+    }
+  </div>
+</div>

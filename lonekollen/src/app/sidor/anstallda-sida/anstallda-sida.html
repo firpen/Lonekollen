@@ -1,0 +1,5 @@
+<app-detaljpanel [valdAnstalld]="valdAnstalld"></app-detaljpanel>
+
+@for (a of anstallda; track a.id) {
+  <app-anstalld-kort [anstalld]="a" (valdAnstalld)="valdAnstalld = $event" />
+}

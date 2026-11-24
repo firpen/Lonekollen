@@ -1,0 +1,12 @@
+<div class="card mb-2" (click)="klick()" style="cursor: pointer">
+  <div class="card-body">
+    <ng-container *ngIf="anstalld; else noData">
+      <h5 class="card-title">{{ anstalld.namn }}</h5>
+      <p class="card-text text-muted">{{ anstalld.roll }}</p>
+      <p class="card-text text-muted">{{ anstalld.lon }} kr</p>
+    </ng-container>
+    <ng-template #noData>
+      <p class="text-muted">Inget anställningsobjekt har skickats hit ännu.</p>
+    </ng-template>
+  </div>
+</div>
