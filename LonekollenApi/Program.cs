@@ -1,6 +1,14 @@
 using LonekollenApi;
+using LonekollenApi.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString =
+  builder.Configuration.GetConnectionString("LonekollenDb");
+
+builder.Services.AddDbContext<LonekollenDbContext>(options =>
+  options.UseSqlServer(connectionString));
 
 // Add services to the container.
 
