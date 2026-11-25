@@ -1,20 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
+﻿using LonekollenApi.Data;
 
 namespace LonekollenApi;
 
 public class EmployeeService
 {
-    private readonly List<Employee> employees =
-   [
-       new Employee { Id = 1, Namn = "Anna Svensson", Roll = "Lönekonsult", Lon = 42000 },
-        new Employee { Id = 2, Namn = "Erik Berg", Roll = "Utvecklare", Lon = 48000 },
-        new Employee { Id = 3, Namn = "Sara Lind", Roll = "HR-specialist", Lon = 39000 },
-    ];
 
-    public List<Employee> GetAll() => employees;
+    private readonly LonekollenDbContext _db;
+
+    public EmployeeService(LonekollenDbContext db)
+    {
+        _db = db;
+    }
+
+    public List<Employee> GetAll() => _db.Employees.ToList();
     public Employee? GetEmployeeById(int id)
     {
-        return employees.FirstOrDefault(employee => employee.Id == id);
+        return _db.Employees.FirstOrDefault(employee => employee.Id == id);
     }
 
 }
